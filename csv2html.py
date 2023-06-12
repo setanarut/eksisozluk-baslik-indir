@@ -1,0 +1,44 @@
+import pandas as pd
+
+dosya = 'test--46490'
+
+df = pd.read_csv(dosya + ".csv")
+
+ht = """<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            font-size: medium;
+            line-height: 1.4;
+            text-align: right;
+            color: rgba(255, 255, 255, 0.766);
+            background-color: rgb(40, 40, 40);
+            max-width: 500px;
+  margin: auto;
+  padding: 10px;
+            font-family: sans-serif}
+        sup {
+            padding-top: 0%;
+            color: rgb(230, 149, 163)
+        }
+        p {
+            text-align: left;
+            padding: 12pt;
+            background-color:rgba(255, 255, 255, 0.071);
+            white-space: pre-line;}
+    </style>
+</head>
+<body>"""
+
+kp = """
+</body>
+</html>"""
+with open(dosya + ".html", "w") as outfile:
+    outfile.write(ht)
+    outfile.write("\n".join("<p> " + str(entry) + "</p>" + "<sup>" + str(yazar) + " - " + str(tarih) + "</sup>" for tarih, yazar, entry in zip (df.tarih, df.yazar, df.entry)))
+    outfile.write(kp)
