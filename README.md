@@ -8,7 +8,7 @@ Ekşi Sözlük başlıklarını CSV olarak arşivler. (pandas)
 Komut satırına aşağıdaki şekilde ekşi başlık adresini argüman olarak yazın:
 
 ```bash
-python3 eksi_indir.py https://eksisozluk1923.com/test--46490
+python3 eksi_indir.py https://eksisozluk1923.com/armut--34642
 ```
 
 İlerleme çubuğu:
