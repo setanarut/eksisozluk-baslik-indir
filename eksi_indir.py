@@ -4,10 +4,11 @@ import requests
 import pandas as pd
 from tqdm import tqdm
 import sys
-# url = "https://eksisozluk1923.com/armut--34642"
-url = str(sys.argv[1])
 
+
+url = str(sys.argv[1])
 dosyaismi = url.rsplit("/",1)[-1]
+
 def get_page(url, n):
     headers = {'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/102.0.0.0 Safari/537.36'}
     url += "?p="
@@ -45,10 +46,7 @@ for page in tqdm(range(1, toplam_sayfa+1), unit=" sayfa", desc="Sayfalar indiril
         new_row = {'entry': entry, 'yazar': yazar, 'tarih': tarih.date(), 'entry_id': entry_id}
         df.loc[len(df)] = new_row
 
-    # if page % 5 == 0:
-    #     print("sayfa: ", page)
-
 dosyaismi += ".csv"
 df.to_csv(dosyaismi, index=False)
 print("dosya kaydedildi: ", dosyaismi)
-# df.to_pickle(dosyaismi + ".pkl")a
+
