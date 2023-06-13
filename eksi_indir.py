@@ -3,8 +3,9 @@ from bs4 import BeautifulSoup
 import requests
 import pandas as pd
 from tqdm import tqdm
-
-url = "https://eksisozluk1923.com/armut--34642"
+import sys
+# url = "https://eksisozluk1923.com/armut--34642"
+url = str(sys.argv[1])
 
 dosyaismi = url.rsplit("/",1)[-1]
 def get_page(url, n):
