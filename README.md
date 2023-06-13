@@ -1,2 +1,3 @@
-# eksi_baslik_indirici
+# Ekşi Sözlük başlık arşivleyici (Scrapper)
+
 Ekşi Sözlük başlıklarını CSV olarak arşivler. (pandas)
