@@ -13,7 +13,7 @@ ht = """<!DOCTYPE html>
     <title>Document</title>
     <style>
         body {
-            font-size: medium;
+            font-size: 11pt;
             line-height: 1.4;
             text-align: right;
             color: rgba(255, 255, 255, 0.766);
@@ -30,7 +30,7 @@ ht = """<!DOCTYPE html>
             text-align: left;
             padding: 12pt;
             background-color:rgba(255, 255, 255, 0.071);
-            white-space: pre-line;}
+            white-space: break-spaces;}
     </style>
 </head>
 <body>"""
@@ -40,5 +40,5 @@ kp = """
 </html>"""
 with open(dosya + ".html", "w") as outfile:
     outfile.write(ht)
-    outfile.write("\n".join("<p> " + str(entry) + "</p>" + "<sup>" + str(yazar) + " - " + str(tarih) + "</sup>" for tarih, yazar, entry in zip (df.tarih, df.yazar, df.entry)))
+    outfile.write("\n".join("<p> " + str(entry) + "</p>" + "<sup>" + str(yazar) + " - " + str(tarih) + " - " + str(entry_id) + "</sup>" for tarih, yazar, entry, entry_id in zip (df.tarih, df.yazar, df.entry, df.entry_id)))
     outfile.write(kp)
