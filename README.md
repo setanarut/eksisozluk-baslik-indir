@@ -3,8 +3,17 @@
 Ekşi Sözlük başlıklarını CSV olarak arşivler. (pandas)
 
 
-`eksi_indir.py` dosyasında başlık adresini yaz ve betiği çalıştır.
+# Kullanım
 
-```python
-url = "https://eksisozluk1923.com/test--46490"
+Komut satırına aşağıdaki şekilde ekşi başlık adresini argüman olarak yazın:
+
+```bash
+python3 eksi_indir.py https://eksisozluk1923.com/test--46490
+```
+
+İlerleme çubuğu:
+
+```bash
+Sayfalar indiriliyor: 100%|███████████████████████████████████████████████████████████████████████████████| 20/20 [00:08<00:00,  2.33 sayfa/s]
+dosya kaydedildi:  armut--34642.csv
 ```
