@@ -1,4 +1,4 @@
-# Ekşi Sözlük başlık arşivleyici (Scrapper)
+# Ekşi Sözlük başlık arşivleyici (Scraper)
 
 Ekşi Sözlük başlıklarını CSV olarak arşivler. (pandas)
 
