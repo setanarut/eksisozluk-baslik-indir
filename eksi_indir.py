@@ -2,9 +2,9 @@ from datetime import datetime
 from bs4 import BeautifulSoup
 import requests
 import pandas as pd
+from tqdm import tqdm
 
-
-url = "https://eksisozluk1923.com/test--46490"
+url = "https://eksisozluk1923.com/armut--34642"
 
 dosyaismi = url.rsplit("/",1)[-1]
 def get_page(url, n):
@@ -18,7 +18,7 @@ s = get_page(url, 1)
 toplam_sayfa = int(s.find("div", {"class":"pager"}).get("data-pagecount"))
 
 df = pd.DataFrame(columns=['entry', 'yazar', 'tarih', 'entry_id'])
-for page in range(1, toplam_sayfa+1):
+for page in tqdm(range(1, toplam_sayfa+1), unit=" sayfa", desc="Sayfalar indiriliyor"):
     s = get_page(url, page)
     items = s.find_all(id="entry-item")
     #br yenisatır düzelt
@@ -44,8 +44,10 @@ for page in range(1, toplam_sayfa+1):
         new_row = {'entry': entry, 'yazar': yazar, 'tarih': tarih.date(), 'entry_id': entry_id}
         df.loc[len(df)] = new_row
 
-    if page % 5 == 0:
-        print("sayfa: ", page)
+    # if page % 5 == 0:
+    #     print("sayfa: ", page)
 
-df.to_csv(dosyaismi + ".csv", index=False)
-# df.to_pickle(dosyaismi + ".pkl")
+dosyaismi += ".csv"
+df.to_csv(dosyaismi, index=False)
+print("dosya kaydedildi: ", dosyaismi)
+# df.to_pickle(dosyaismi + ".pkl")a
