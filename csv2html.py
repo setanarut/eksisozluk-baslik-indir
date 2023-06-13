@@ -1,8 +1,9 @@
 import pandas as pd
+import sys
 
-dosya = 'test--46490'
+dosya = str(sys.argv[1])
 
-df = pd.read_csv(dosya + ".csv")
+df = pd.read_csv(dosya)
 
 ht = """<!DOCTYPE html>
 <html lang="en">
