@@ -21,8 +21,14 @@ df = pd.DataFrame(columns=['entry', 'yazar', 'tarih', 'entry_id'])
 for page in range(1, toplam_sayfa+1):
     s = get_page(url, page)
     items = s.find_all(id="entry-item")
+    #br yenisatır düzelt
+    for br in s.find_all("br"):
+        br.replace_with("\n")
     for i in range(len(items)):
-        entry = str(items[i].find("div", {"class":"content"}).text).strip()
+        entry = str(items[i].find("div", {"class":"content"}).get_text())
+        entry = entry.lstrip()
+        entry = entry.rstrip()
+        # print(entry)
         yazar = items[i].get("data-author")
         tarih = str(items[i].find("a",attrs={"class":"entry-date permalink"}).text)
         edit = "-"
