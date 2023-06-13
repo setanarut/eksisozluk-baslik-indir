@@ -3,14 +3,13 @@
 Ekşi Sözlük başlıklarını CSV olarak arşivler. (pandas)
 
 
-# Kullanım
+## Kullanım
 
 Gerekli paketleri kurmak için:
 
 ```bash
 pip3 install -r requirements.txt
 ```
-
 
 Komut satırına aşağıdaki şekilde ekşi başlık adresini argüman olarak yazın:
 
@@ -25,7 +24,7 @@ Sayfalar indiriliyor: 100%|█████████████████�
 dosya kaydedildi:  armut--34642.csv
 ```
 
-# CSV dosyasını tek sayfa HTML yapma
+## CSV dosyasını tek sayfa HTML yapma
 
 Çok fazla sayfalı ekşisözlük başlıklarında tavsiye edilmez
 
